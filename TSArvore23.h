@@ -45,10 +45,14 @@ bool Node23<Key, Item>::ehFolha(){
 template <class Key, class Item>
 class TSArvore23{
     private:
-    Node23<Key, Item> * raiz;
     Node23<Key, Item> * put23(Node23<Key, Item> * raiz, Key key, Item val, bool &cresceu);
     bool cresceu;
+    void mostra(Node23<Key, Item> * raiz, bool ehRaiz);
+    Node23<Key, Item> * raiz;
     Item get(Node23<Key, Item> * raiz, Key key);
+    Key select(Node23<Key, Item> * raiz, int k);
+    int size(Node23<Key, Item> * raiz);
+    int rank(Node23<Key, Item> * raiz, Key key); 
     
     public:
     void add(Key key, Item val);
@@ -56,6 +60,102 @@ class TSArvore23{
     int rank(Key key);
     Key select(int k);
 };
+
+template <class Key, class Item>
+void TSArvore23<Key, Item>::mostra(Node23<Key, Item> * raiz, bool ehRaiz){
+    if(raiz == nullptr) return;
+    if(ehRaiz){
+        if(raiz->ehDoisNo) cout << "raiz = " << raiz->key1 << endl;
+        else  cout << "raiz = (" << raiz->key1 << " ; " << raiz->key2 << ")" << endl;
+    }
+    else{
+        if(raiz->ehDoisNo) cout << "(" << raiz->key1 << ")" << endl;
+        else cout << "(" << raiz->key1 << " ; " << raiz->key2 << ")" << endl;
+    }
+    if(raiz->ehDoisNo){
+        if(raiz->ap1 != nullptr){
+            cout << "filho esquerdo de (" << raiz->key1 << ") = ";
+            mostra(raiz->ap1, false);
+        }
+        if(raiz->ap3 != nullptr){
+            cout << "filho direito de (" << raiz->key1 << ") = ";
+            mostra(raiz->ap3, false);
+        }
+        return;
+    }
+    else{
+        if(raiz->ap1 != nullptr){
+            cout << "filho esquerdo de (" << raiz->key1 << " ; " << raiz->key2 << ") = ";
+            mostra(raiz->ap1, false);
+        }
+        if(raiz->ap2 != nullptr){
+            cout << "filho centro de (" << raiz->key1 << " ; " << raiz->key2 << ") = ";
+            mostra(raiz->ap2, false);
+        }
+        if(raiz->ap3 != nullptr){
+            cout << "filho direito de (" << raiz->key1  << " ; " << raiz->key2 << ") = ";
+            mostra(raiz->ap3, false);
+        }
+        return;
+    }
+}
+
+
+template <class Key, class Item>
+Key TSArvore23<Key, Item>::select(int k){
+    return select(raiz, k);
+}
+
+template <class Key, class Item>
+Key TSArvore23<Key, Item>::select(Node23<Key , Item> * raiz, int k){
+    if(raiz == nullptr) return Key();
+    if(raiz->ehDoisNo){
+        int t = size(raiz->ap1);
+        if(t > k) return select(raiz->ap1, k);
+        else if(t < k) return select(raiz->ap3, k - t - 1);
+        else return raiz->key1;
+    }
+    else{
+        int t1 = size(raiz->ap1);
+        int t2 = size(raiz->ap2);
+        if(k == t1) return raiz->key1;
+        if(k == t1 + t2 + 1) return raiz->key2;
+        if(k < t1) return select(raiz->ap1, k);
+        if(k > t1 && (t1 + t2 + 1) > k) return select(raiz->ap2, k - t1 - 1);
+        if(k > t1 + t2) return select(raiz->ap3, k - t1 - t2 - 2);
+
+    }
+}
+
+
+template <class Key, class Item>
+int TSArvore23<Key, Item>::size(Node23<Key, Item> * raiz){
+    if(raiz == nullptr) return 0;
+    return raiz->N;
+}
+
+template <class Key, class Item>
+int TSArvore23<Key, Item>::rank(Node23<Key, Item> * raiz, Key key){
+    if(raiz == nullptr) return 0;
+    if(raiz->ehDoisNo){
+        if(key == raiz->key1) return size(raiz->ap1);
+        else if(key < raiz->key1) return rank(raiz->ap1, key);
+        else return 1 + size(raiz->ap1) + rank(raiz->ap3, key);
+    }
+    else{
+        if(key == raiz->key1) return size(raiz->ap1);
+        if(key == raiz->key2) return size(raiz->ap1) + size(raiz->ap2) + 1;
+        if(key < raiz->key1) return rank(raiz->ap1, key);
+        if(key > raiz->key2) return 2 + size(raiz->ap1) + size(raiz->ap2) + rank(raiz->ap3, key);
+        if(raiz->key2 > key && key > raiz->key1) return 1 + size(raiz->ap1) + rank(raiz->ap2, key);
+
+    }
+}
+
+template <class Key, class Item>
+int TSArvore23<Key, Item>::rank(Key key){
+    return rank(raiz, key);
+}
 
 template <class Key, class Item>
 Item TSArvore23<Key, Item>::value(Key key){
@@ -108,6 +208,7 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
                 raiz->ehDoisNo = false;
             }
             cresceu = false;
+            raiz->N = size(raiz->ap1) + size(raiz->ap2) + size(raiz->ap3) + 2;
             return raiz;
         }
         // A folha é 3Nó, então vai acontecer split.
@@ -149,12 +250,15 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
             novaRaiz->ap1 = raiz;
             novaRaiz->ap3 = novo;
             cresceu = true;
+            raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
+            novo->N = size(novo->ap1) + size(novo->ap3) + 1;
+            novaRaiz->N = size(novaRaiz->ap1) + size(novaRaiz->ap3) + 1;
             return novaRaiz;
         }
     }
     // Saímos do caso base
     if(raiz->key1 > key){
-        Node23<Key, Item> * p = put23(raiz->ap1, key, val, cresceu);
+        Node23<Key, Item> * p = put23(raiz->ap1, key, val, cresceu);     
         // Colocamos uma key na árvore.
         if(cresceu){
             // Agora, se a árvore cresceu, teremos que balancear.
@@ -168,6 +272,7 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
                 raiz->ehDoisNo = false;
                 cresceu = false;
                 delete p;
+                raiz->N = size(raiz->ap1) + size(raiz->ap2) + size(raiz->ap3) + 2;
                 return raiz;
             }
             else{
@@ -183,6 +288,9 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
 
                 novaRaiz->ehDoisNo = raiz->ehDoisNo = p->ehDoisNo = true;
                 cresceu = true;
+                raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
+                p->N = size(p->ap1) + size(p->ap3) + 1;
+                novaRaiz->N = size(novaRaiz->ap1) + size(novaRaiz->ap3) + 1;
                 return novaRaiz;
             }        
         }
@@ -191,7 +299,10 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
             return raiz;
         }
     }
-    if(key > raiz->key2){
+    Key aux;
+    if(raiz->ehDoisNo) aux = raiz->key1;
+    else aux = raiz->key2;
+    if(key > aux){
         Node23<Key, Item> * p = put23(raiz->ap3, key, val, cresceu);
         if(cresceu){
             if(raiz->ehDoisNo){
@@ -202,6 +313,7 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
                 raiz->ap3 = p->ap3;
                 delete p;
                 cresceu = false;
+                raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
                 return raiz;
             }
             else{
@@ -216,6 +328,9 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
 
                 novaRaiz->ehDoisNo = p->ehDoisNo = raiz->ehDoisNo = true;
                 cresceu = true;
+                raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
+                p->N = size(p->ap1) + size(p->ap3) + 1;
+                novaRaiz->N = size(novaRaiz->ap1) + size(novaRaiz->ap3) + 1;
                 return novaRaiz;
             }
         }
@@ -244,6 +359,9 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
 
             novaRaiz->ehDoisNo = p->ehDoisNo = raiz->ehDoisNo = true;
             cresceu = true;
+            raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
+            p->N = size(p->ap1) + size(p->ap3) + 1;
+            novaRaiz->N = size(novaRaiz->ap1) + size(novaRaiz->ap3) + 1;
             return novaRaiz;
         }
         else{

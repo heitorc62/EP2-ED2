@@ -31,7 +31,8 @@ int main(){
     
     //TSVetorOrdenado<string, int> dict = TSVetorOrdenado<string, int>();
     //TSArvoreBuscaBinaria<string, int> dict = TSArvoreBuscaBinaria<string, int>();
-    TSArvoreRubroNegra<string, int> dict = TSArvoreRubroNegra<string, int>();
+    //TSArvoreRubroNegra<string, int> dict = TSArvoreRubroNegra<string, int>();
+    TSArvore23<string, int> dict = TSArvore23<string, int>();
 
   
     int cont = 0;
@@ -67,6 +68,9 @@ int main(){
             for(int i = atual; i < next; i++){
                 //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                 dict.add(palavras[i], dict.value(palavras[i]) + 1);
+                //cout << "Nesse momento temos: " << endl;
+                //dict.mostra(dict.raiz, true);
+                //cout << "\n\n\n";
             }
             atual = next;
         }
