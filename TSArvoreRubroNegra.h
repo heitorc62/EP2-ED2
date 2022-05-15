@@ -43,6 +43,7 @@ class TSArvoreRubroNegra{
     int size(NodeRN<Key, Item> * raiz);
     Key select(NodeRN<Key, Item> * raiz, int k);
     int rank(NodeRN<Key, Item> * raiz, Key key);
+    void mostraArvore(NodeRN<Key, Item> * raiz);
 
     
     public:
@@ -52,6 +53,21 @@ class TSArvoreRubroNegra{
     Key select(int k);
 
 };
+
+template <class Key, class Item>
+void TSArvoreRubroNegra<Key, Item>::mostraArvore(NodeRN<Key, Item> * raiz){
+    if(raiz == nullptr) return;
+    if(raiz->pai == nullptr) cout << "raiz = " << raiz->key << endl;
+    else cout << raiz->key << endl;
+    if(raiz->esq != nullptr){
+        cout << "filho esquerdo de " << raiz->key << " = ";
+        mostraArvore(raiz->esq);
+    } 
+    if(raiz->dir != nullptr){
+        cout << "filho direito de " << raiz->key << " = ";
+        mostraArvore(raiz->dir);
+    }
+}
 
 template <class Key, class Item>
 int TSArvoreRubroNegra<Key, Item>::size(){
@@ -90,7 +106,6 @@ int TSArvoreRubroNegra<Key, Item>::rank(Key key){
 
 template <class Key, class Item>
 int TSArvoreRubroNegra<Key, Item>::rank(NodeRN<Key, Item> * raiz, Key key){
-    if(raiz == nullptr) return 0;
     if(key < raiz->key) return rank(raiz->esq, key);
     else if(key > raiz->key) return 1 + size(raiz->esq) + rank(raiz->dir, key);
     else return size(raiz->esq);
@@ -111,53 +126,29 @@ Item TSArvoreRubroNegra<Key, Item>::get(NodeRN<Key, Item> * raiz, Key key){
 
 template <class Key, class Item>
 NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaEsq(NodeRN<Key, Item> * r){
-    /*cout << "nesse momento temos EEEEEEEEEEEEEEEEEE: " << endl;
-    cout << "raiz = " << raiz->key << endl;
-    cout << "filho direito de " << raiz->key << " = " << raiz->dir->key << endl;
-    cout << "filho direito de " << raiz->dir->key << " = " << raiz->dir->dir->key << endl;
-    cout << "r = " << r->key << endl;*/
     NodeRN<Key, Item> * q = r->dir;
     if(q == nullptr) return r;
-    if(r->pai != nullptr) r->pai->esq = q;
+    if(r->pai != nullptr) r->pai->dir = q;
     q->pai = r->pai;
-    //cout << "aqui" << endl;
     r->dir = q->esq;
     r->pai = q;
     q->esq = r;
     r->N = size(r->esq) + size(r->dir) + 1;
     q->N = size(q->esq) + size(q->dir) + 1;
     if(r->dir != nullptr) r->dir->pai = r;
-    /*
-    cout << "nesse momento temos: " << endl;
-    cout << "raiz = " << raiz->key << endl;
-    cout << "filho direito da raiz = " << raiz->dir->key << endl;
-    cout << "filho esquerdo da raiz = " << raiz->esq->key << endl;
-    cout << "filho direito do " << raiz->esq->key << " = "<< raiz->esq->dir->key << endl;
-    cout << "filho esquerdo do " << raiz->esq->key << " = " << raiz->esq->esq->key << endl;*/
     return q;
 }
 
 template <class Key, class Item>
 NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaDir(NodeRN<Key, Item> * q){
-    /*cout << "nesse momento, temos" << endl;
-    cout << "raiz = " << raiz->key << endl;
-    cout << "filho direito de " << raiz->key << " = " << raiz->dir->key << endl;
-    cout << "filho esquerdo de " << raiz->dir->key << " = " << raiz->dir->esq->key << endl; 
-    cout << "q = " << q->key << endl;*/
     NodeRN<Key, Item> * r = q->esq;
-    if(q->pai != nullptr) q->pai->dir = r;
-    /*cout << "aqui" << endl;
-    cout << "q->pai = " << q->pai->key << endl;*/
+    if(q->pai != nullptr) q->pai->esq = r;
     r->pai = q->pai;
     q->pai = r;
     q->esq = r->dir;
     r->dir = q;
     q->N = size(q->dir) + size(q->esq) + 1;
-    r->N = size(r->esq) + size(r->dir) + 1;
-    /*cout << "nesse momento, temos" << endl;
-    cout << "raiz = " << raiz->key << endl;
-    cout << "filho direito de " << raiz->key << " = " << raiz->dir->key << endl;
-    cout << "filho direito de " << raiz->dir->key << " = " << raiz->dir->dir->key << endl;*/      
+    r->N = size(r->esq) + size(r->dir) + 1;     
     if(q->esq != nullptr) q->esq->pai = q;
     return r;
 }
@@ -242,11 +233,6 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
             }
             else{
                 NodeRN<Key, Item> * q = rodaDir(p);
-                /*cout << "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << endl;
-                cout << "nesse momento, temos" << endl;
-                cout << "raiz = " << raiz->key << endl;
-                cout << "filho direito de " << raiz->key << " = " << raiz->dir->key << endl;
-                cout << "filho direito de " << raiz->dir->key << " = " << raiz->dir->dir->key << endl; */  
                 NodeRN<Key, Item> * r = rodaEsq(avo);
                 r->cor = 'b';
                 avo->cor = 'r';

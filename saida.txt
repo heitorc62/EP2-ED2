@@ -1,1 +1,200 @@
-cont = 0
+Nesse momento a árvore é: 
+raiz = a
+
+
+
+Nesse momento a árvore é: 
+raiz = a
+filho direito de a = aa
+
+
+
+Vamos rodar o a para a esquerda
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+filho direito de aaa = aaaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+filho direito de aaa = aaaa
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+filho direito de aaa = aaaa
+
+
+
+CASO QUE DEU PAU
+Vamos rodar aaa para esquerda
+antes de rodar, temos: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaa
+filho direito de aaa = aaaa
+filho direito de aaaa = bbb
+
+
+
+Vamos rodar o aaa para a esquerda
+depois de rodar, temos: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+Nesse momento a árvore é: 
+raiz = aa
+filho esquerdo de aa = a
+filho direito de aa = aaaa
+filho esquerdo de aaaa = aaa
+filho direito de aaaa = bbb
+filho esquerdo de bbb = b
+filho direito de bbb = bbbbbb
+
+
+
+4
