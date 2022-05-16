@@ -1,200 +1,208 @@
-Nesse momento a árvore é: 
-raiz = a
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (a)
 
 
 
-Nesse momento a árvore é: 
-raiz = a
-filho direito de a = aa
+vamos adicionar a palavra: aa
+Nesse momento temos: 
+raiz = (a ; aa)
 
 
 
-Vamos rodar o a para a esquerda
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
+vamos adicionar a palavra: aaa
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
+vamos adicionar a palavra: aa
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
+2
+2
+aaa
+vamos adicionar a palavra: aaa
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
+vamos adicionar a palavra: aa
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
+vamos adicionar a palavra: aa
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
-filho direito de aaa = aaaa
+vamos adicionar a palavra: aaaa
+raiz é dois no = 1
+raiz = aa size(raiz->ap1) = 1; size(raiz->ap3) = 2
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa ; aaaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
-filho direito de aaa = aaaa
+vamos adicionar a palavra: aa
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa ; aaaa)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
-filho direito de aaa = aaaa
+5
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa ; aaaa)
 
 
 
-CASO QUE DEU PAU
-Vamos rodar aaa para esquerda
-antes de rodar, temos: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaa
-filho direito de aaa = aaaa
-filho direito de aaaa = bbb
+vamos adicionar a palavra: bbb
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+raiz é dois no = 1
+antes de balancear: 
+raiz = aa size(raiz->ap1) = 1 size(raiz->ap3) = 1
+Nesse momento temos: 
+raiz = (aa ; aaaa)
+filho esquerdo de (aa ; aaaa) = (a)
+filho centro de (aa ; aaaa) = (aaa)
+filho direito de (aa ; aaaa) = (bbb)
 
 
 
-Vamos rodar o aaa para a esquerda
-depois de rodar, temos: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
+vamos adicionar a palavra: b
+Nesse momento temos: 
+raiz = (aa ; aaaa)
+filho esquerdo de (aa ; aaaa) = (a)
+filho centro de (aa ; aaaa) = (aaa)
+filho direito de (aa ; aaaa) = (b ; bbb)
+
+
+
+vamos adicionar a palavra: bbbbbb
+raiz é dois no = 0
+antes de balancear: 
+raiz = aa size(raiz->ap1) = 1 size(raiz->ap3) = 1
+raiz é dois no = 1
+raiz = aa size(raiz->ap1) = 1 size(raiz->ap3) = 1
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
+vamos adicionar a palavra: aaaa
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
+vamos adicionar a palavra: a
+Nesse momento temos: 
+raiz = (aaaa)
+filho esquerdo de (aaaa) = (aa)
+filho esquerdo de (aa) = (a)
+filho direito de (aa) = (aaa)
+filho direito de (aaaa) = (bbb)
+filho esquerdo de (bbb) = (b)
+filho direito de (bbb) = (bbbbbb)
 
 
 
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
-
-
-
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
-
-
-
-Nesse momento a árvore é: 
-raiz = aa
-filho esquerdo de aa = a
-filho direito de aa = aaaa
-filho esquerdo de aaaa = aaa
-filho direito de aaaa = bbb
-filho esquerdo de bbb = b
-filho direito de bbb = bbbbbb
-
-
-
+size(raiz->ap1) = 3
+size(raiz->ap1) = 0
 4

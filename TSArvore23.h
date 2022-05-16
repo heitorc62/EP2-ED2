@@ -47,14 +47,15 @@ class TSArvore23{
     private:
     Node23<Key, Item> * put23(Node23<Key, Item> * raiz, Key key, Item val, bool &cresceu);
     bool cresceu;
-    void mostra(Node23<Key, Item> * raiz, bool ehRaiz);
-    Node23<Key, Item> * raiz;
     Item get(Node23<Key, Item> * raiz, Key key);
     Key select(Node23<Key, Item> * raiz, int k);
     int size(Node23<Key, Item> * raiz);
     int rank(Node23<Key, Item> * raiz, Key key); 
     
     public:
+
+    Node23<Key, Item> * raiz;
+    void mostra(Node23<Key, Item> * raiz, bool ehRaiz);
     void add(Key key, Item val);
     Item value(Key key);
     int rank(Key key);
@@ -65,7 +66,7 @@ template <class Key, class Item>
 void TSArvore23<Key, Item>::mostra(Node23<Key, Item> * raiz, bool ehRaiz){
     if(raiz == nullptr) return;
     if(ehRaiz){
-        if(raiz->ehDoisNo) cout << "raiz = " << raiz->key1 << endl;
+        if(raiz->ehDoisNo) cout << "raiz = (" << raiz->key1 << ")" << endl;
         else  cout << "raiz = (" << raiz->key1 << " ; " << raiz->key2 << ")" << endl;
     }
     else{
@@ -138,9 +139,15 @@ template <class Key, class Item>
 int TSArvore23<Key, Item>::rank(Node23<Key, Item> * raiz, Key key){
     if(raiz == nullptr) return 0;
     if(raiz->ehDoisNo){
-        if(key == raiz->key1) return size(raiz->ap1);
+        if(key == raiz->key1){
+            //if(key == "b") cout << "size(raiz->ap1) = " << size(raiz->ap1) << endl;
+            return size(raiz->ap1);
+        }
         else if(key < raiz->key1) return rank(raiz->ap1, key);
-        else return 1 + size(raiz->ap1) + rank(raiz->ap3, key);
+        else{
+            //if(key == "b") cout << "size(raiz->ap1) = " << size(raiz->ap1) << endl;
+            return 1 + size(raiz->ap1) + rank(raiz->ap3, key);
+        }
     }
     else{
         if(key == raiz->key1) return size(raiz->ap1);
@@ -194,6 +201,8 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
         if(raiz->ehDoisNo){      // Tem espaço pra colocar key no nó.
             if(raiz->key1 == key){
                 raiz->val1 = val;
+                cresceu = false;
+                return raiz;
             }
             else if(raiz->key1 > key){
                 raiz->key2 = raiz->key1;
@@ -257,6 +266,21 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
         }
     }
     // Saímos do caso base
+    if(raiz->ehDoisNo && raiz->key1 == key){
+        raiz->val1 = val;
+        return raiz;
+    } 
+    if(!raiz->ehDoisNo){
+        if(raiz->key1 == key){
+            raiz->val1 = val;
+            return raiz;
+        } 
+        if(raiz->key2 == key){
+            raiz->val2 = val;
+            return raiz;
+        } 
+        
+    }
     if(raiz->key1 > key){
         Node23<Key, Item> * p = put23(raiz->ap1, key, val, cresceu);     
         // Colocamos uma key na árvore.
@@ -305,7 +329,14 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
     if(key > aux){
         Node23<Key, Item> * p = put23(raiz->ap3, key, val, cresceu);
         if(cresceu){
-            if(raiz->ehDoisNo){
+            if(raiz->ehDoisNo){/*
+                if(p->key1 == "aaaa"){
+                    cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << endl;
+                    cout << "raiz é dois no = "  << raiz->ehDoisNo << endl;
+                    cout << "antes de balancear: " << endl;
+                    cout << "raiz = " << raiz->key1 << " size(raiz->ap1) = " << size(raiz->ap1);
+                    cout << " size(raiz->ap3) = " << size(raiz->ap3) << endl;
+                } */
                 raiz->ehDoisNo = false;
                 raiz->key2 = p->key1;
                 raiz->val2 = p->val1;
@@ -318,6 +349,12 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
             }
             else{
                 Node23<Key, Item> * novaRaiz = new Node23<Key, Item>();
+                /*if(p->key1 == "bbb"){
+                    cout << "raiz é dois no = "  << raiz->ehDoisNo << endl;
+                    cout << "antes de balancear: " << endl;
+                    cout << "raiz = " << raiz->key1 << " size(raiz->ap1) = " << size(raiz->ap1);
+                    cout << " size(raiz->ap3) = " << size(raiz->ap3) << endl;
+                } */
                 novaRaiz->key1 = raiz->key2;
                 novaRaiz->val1 = raiz->val2;
                 
@@ -329,12 +366,22 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
                 novaRaiz->ehDoisNo = p->ehDoisNo = raiz->ehDoisNo = true;
                 cresceu = true;
                 raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
+                /*if(p->key1 == "bbb"){
+                    cout << "raiz é dois no = "  << raiz->ehDoisNo << endl;
+                    cout << "raiz = " << raiz->key1 << " size(raiz->ap1) = " << size(raiz->ap1);
+                    cout << " size(raiz->ap3) = " << size(raiz->ap3) << endl;
+                } */
                 p->N = size(p->ap1) + size(p->ap3) + 1;
                 novaRaiz->N = size(novaRaiz->ap1) + size(novaRaiz->ap3) + 1;
                 return novaRaiz;
             }
         }
         else{
+            /*if(p->key2 == "aaaa"){
+                cout << "raiz é dois no = "  << raiz->ehDoisNo << endl;
+                cout << "raiz = " << raiz->key1 << " size(raiz->ap1) = " << size(raiz->ap1);
+                cout << "; size(raiz->ap3) = " << size(raiz->ap3) << endl;
+            }*/
             return raiz;
         }
     }
