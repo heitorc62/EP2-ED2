@@ -5,6 +5,7 @@
 #include "TSArvoreBuscaBinaria.h"
 #include "TSArvore23.h"
 #include "TSArvoreRubroNegra.h"
+#include "TSTreap.h"
 
 using namespace std;
 
