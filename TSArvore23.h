@@ -1,13 +1,14 @@
 #ifndef TSARVORE23_H
 #define TSARVORE23_H
 #include <iostream>
+#include "TS.h"
 
 using namespace std;
 
 
 
 template <class Key, class Item>
-class Node23{
+class Node23 : public Node<Key, Item>{
     public:
     Node23(){};
     Node23(Key key, Item val, bool ehDoisNo);
@@ -43,7 +44,7 @@ bool Node23<Key, Item>::ehFolha(){
 
 
 template <class Key, class Item>
-class TSArvore23{
+class TSArvore23 : public TS<Key, Item>{
     private:
     Node23<Key, Item> * put23(Node23<Key, Item> * raiz, Key key, Item val, bool &cresceu);
     bool cresceu;

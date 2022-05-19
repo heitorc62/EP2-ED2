@@ -8,7 +8,7 @@
 using namespace std;
 
 template<class Key, class Item>
-class NodeTR : public Node{
+class NodeTR : public Node<Key, Item>{
     public:
     NodeTR(){};
     NodeTR(Key key, Item val, int N, NodeTR * pai);
@@ -31,7 +31,7 @@ NodeTR<Key, Item>::NodeTR(Key key, Item val, int N, NodeTR * pai){
 
 
 template <class Key, class Item>
-class TSTreap : public TS{
+class TSTreap : public TS<Key, Item>{
     private:
     NodeTR<Key, Item> * put(NodeTR<Key, Item> * raiz, Key key, Item val, NodeTR<Key, Item> * pai);
     Item get(NodeTR<Key, Item> * no, Key key);

@@ -1,5 +1,6 @@
 #ifndef TSVETORORDENADO_H
 #define TSVETORORDENADO_H
+#include "TS.h"
 
 using namespace std;
 
@@ -21,8 +22,7 @@ parChaveValor<Key, Item>::parChaveValor(Key key, Item val){
 
 
 template <class Key, class Item>
-class TSVetorOrdenado
-{
+class TSVetorOrdenado : public TS<Key, Item>{
     private:
     int tam;
     int n;

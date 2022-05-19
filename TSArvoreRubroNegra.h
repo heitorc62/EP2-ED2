@@ -1,5 +1,6 @@
 #ifndef ARVORERUBRONEGRA_H
 #define ARVORERUBURONEGRA_H
+#include "TS.h"
 
 #include <iostream>
 #include <string>
@@ -7,7 +8,7 @@
 using namespace std;
 
 template <class Key, class Item>
-class NodeRN{
+class NodeRN : public Node<Key, Item>{
     public:
     NodeRN(){};
     NodeRN(Key key, Item val, char cor, NodeRN * pai);
@@ -32,7 +33,7 @@ NodeRN<Key, Item>::NodeRN(Key key, Item val, char cor, NodeRN<Key, Item> * pai){
 
 
 template <class Key, class Item>
-class TSArvoreRubroNegra{
+class TSArvoreRubroNegra : public TS<Key, Item>{
     private:
     NodeRN<Key, Item> * putRN(NodeRN<Key, Item> * raiz, Key key, Item val);
     NodeRN<Key, Item> * raiz;
