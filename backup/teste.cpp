@@ -26,6 +26,7 @@ int main(){
         int i = 0;
         string palavra;
         string palavras[N];
+        cout << "N = " << N << endl;
 
         string delimiters = ",.;:";
 
@@ -36,11 +37,15 @@ int main(){
             while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
                 palavra.pop_back();
             }
-
             palavras[cont] = palavra;
             cont++;
         }
+        int total = sizeof(palavras)/sizeof(palavras[0]);
+        cout << "A quantidade de palavras no texto é: " << total  << endl;
+        cout << "A ultima palavra lida foi: " << palavras[total - 2] << endl;
+
         int Q;
+        cout << "Quantidade de instruções: " << Q << endl;
         cin >> Q;
         int atual = 0;
         cont = 0;
@@ -53,7 +58,7 @@ int main(){
             if(op == 1){
                 next += stoi(aux);
                 for(int i = atual; i < next; i++){
-                    //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
+                    cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
                     //cout << "Nesse momento temos: " << endl;
                     //dict.mostraArvore(dict.raiz);
@@ -73,6 +78,7 @@ int main(){
             }
             cont++;
         }
+        cout << "finalizou" << endl;
     }
     else if(tipo == "ABB"){
         cout << "criamos arvore de busca binaria" << endl;
@@ -98,7 +104,6 @@ int main(){
             while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
                 palavra.pop_back();
             }
-
             palavras[cont] = palavra;
             cont++;
         }
@@ -115,7 +120,7 @@ int main(){
             if(op == 1){
                 next += stoi(aux);
                 for(int i = atual; i < next; i++){
-                    //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
+                    cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
                     //cout << "Nesse momento temos: " << endl;
                     //dict.mostraArvore(dict.raiz);
@@ -174,7 +179,7 @@ int main(){
             if(op == 1){
                 next += stoi(aux);
                 for(int i = atual; i < next; i++){
-                    //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
+                    cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
                     //cout << "Nesse momento temos: " << endl;
                     //dict.mostraArvore(dict.raiz);
@@ -234,7 +239,7 @@ int main(){
             if(op == 1){
                 next += stoi(aux);
                 for(int i = atual; i < next; i++){
-                    //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
+                    cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
                     //cout << "Nesse momento temos: " << endl;
                     //dict.mostraArvore(dict.raiz);
@@ -294,7 +299,7 @@ int main(){
             if(op == 1){
                 next += stoi(aux);
                 for(int i = atual; i < next; i++){
-                    //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
+                    cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
                     //cout << "Nesse momento temos: " << endl;
                     //dict.mostraArvore(dict.raiz);
