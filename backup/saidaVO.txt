@@ -1,9 +1,11 @@
 criamos vetor ordenado
-N = 78122
-A quantidade de palavras no texto é: 78122
-A ultima palavra lida foi: new
-Quantidade de instruções: 13093152
-4066
-3168
-
+N = 10000
+A quantidade de palavras no texto é: 10000
+A ultima palavra lida foi: turpis
+Quantidade de instruções: 8
+28
+158
+consectetur
+57
+140
 finalizou

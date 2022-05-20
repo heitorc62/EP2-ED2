@@ -35,7 +35,6 @@ template <class Key, class Item>
 class TSArvoreRubroNegra{
     private:
     NodeRN<Key, Item> * putRN(NodeRN<Key, Item> * raiz, Key key, Item val);
-    NodeRN<Key, Item> * raiz;
     NodeRN<Key, Item> * rodaEsq(NodeRN<Key, Item> * raiz);
     NodeRN<Key, Item> * rodaDir(NodeRN<Key, Item> * raiz);
     Item get(NodeRN<Key, Item> * raiz, Key key);
@@ -43,11 +42,12 @@ class TSArvoreRubroNegra{
     int size(NodeRN<Key, Item> * raiz);
     Key select(NodeRN<Key, Item> * raiz, int k);
     int rank(NodeRN<Key, Item> * raiz, Key key);
-    void mostraArvore(NodeRN<Key, Item> * raiz);
 
     
     public:
+    void mostraArvore(NodeRN<Key, Item> * raiz);
     void add(Key key, Item val);
+    NodeRN<Key, Item> * raiz;
     Item value(Key key);
     int rank(Key key);
     Key select(int k);
