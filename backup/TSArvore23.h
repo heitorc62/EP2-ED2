@@ -320,6 +320,8 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
         }
         else{
             // Se não cresceu, então a árvore já está balanceada.
+            if(raiz->ehDoisNo) raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1; 
+            else raiz->N = size(raiz->ap1) + size(raiz->ap2) + size(raiz->ap3) + 2;
             return raiz;
         }
     }
@@ -344,7 +346,7 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
                 raiz->ap3 = p->ap3;
                 delete p;
                 cresceu = false;
-                raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1;
+                raiz->N = size(raiz->ap1) + size(raiz->ap2) + size(raiz->ap3) + 2;
                 return raiz;
             }
             else{
@@ -382,6 +384,8 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
                 cout << "raiz = " << raiz->key1 << " size(raiz->ap1) = " << size(raiz->ap1);
                 cout << "; size(raiz->ap3) = " << size(raiz->ap3) << endl;
             }*/
+            if(raiz->ehDoisNo) raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1; 
+            else raiz->N = size(raiz->ap1) + size(raiz->ap2) + size(raiz->ap3) + 2;
             return raiz;
         }
     }
@@ -412,6 +416,8 @@ Node23<Key, Item> * TSArvore23<Key, Item>::put23(Node23<Key, Item> * raiz, Key k
             return novaRaiz;
         }
         else{
+            if(raiz->ehDoisNo) raiz->N = size(raiz->ap1) + size(raiz->ap3) + 1; 
+            else raiz->N = size(raiz->ap1) + size(raiz->ap2) + size(raiz->ap3) + 2;
             return raiz;
         }
     }

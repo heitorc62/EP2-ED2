@@ -134,10 +134,9 @@ NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaEsq(NodeRN<Key, Item> * r
     r->dir = q->esq;
     r->pai = q;
     q->esq = r;
+    if(r->dir != nullptr) r->dir->pai = r;  
     r->N = size(r->esq) + size(r->dir) + 1;
     q->N = size(q->esq) + size(q->dir) + 1;
-    if(r->dir != nullptr) r->dir->pai = r;
-    
     return q;
 }
 
@@ -151,10 +150,10 @@ NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaDir(NodeRN<Key, Item> * q
     r->pai = q->pai;
     q->pai = r;
     q->esq = r->dir;
-    r->dir = q;
-    q->N = size(q->dir) + size(q->esq) + 1;
-    r->N = size(r->esq) + size(r->dir) + 1;     
+    r->dir = q;   
     if(q->esq != nullptr) q->esq->pai = q;
+    q->N = size(q->dir) + size(q->esq) + 1;
+    r->N = size(r->esq) + size(r->dir) + 1;  
     return r;
 }
 
@@ -269,7 +268,8 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
             }
         }
     }
-    raiz->N = size(raiz->esq) + size(raiz->dir) + 1;
+    filho->N = size(filho->esq) + size(filho->dir) + 1;
+    //raiz->N = size(raiz->esq) + size(raiz->dir) + 1;
     return raiz;
 }
 
