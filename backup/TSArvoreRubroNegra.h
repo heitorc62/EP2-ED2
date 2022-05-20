@@ -128,7 +128,8 @@ template <class Key, class Item>
 NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaEsq(NodeRN<Key, Item> * r){
     NodeRN<Key, Item> * q = r->dir;
     if(q == nullptr) return r;
-    if(r->pai != nullptr) r->pai->dir = q;
+    if(r->pai != nullptr && r->pai->esq != nullptr && r->key == r->pai->esq->key) r->pai->esq = q;
+    if(r->pai != nullptr && r->pai->dir != nullptr && r->key == r->pai->dir->key) r->pai->dir = q;
     q->pai = r->pai;
     r->dir = q->esq;
     r->pai = q;
@@ -136,13 +137,17 @@ NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaEsq(NodeRN<Key, Item> * r
     r->N = size(r->esq) + size(r->dir) + 1;
     q->N = size(q->esq) + size(q->dir) + 1;
     if(r->dir != nullptr) r->dir->pai = r;
+    
     return q;
 }
 
 template <class Key, class Item>
 NodeRN<Key, Item> * TSArvoreRubroNegra<Key, Item>::rodaDir(NodeRN<Key, Item> * q){
     NodeRN<Key, Item> * r = q->esq;
-    if(q->pai != nullptr) q->pai->esq = r;
+    //cout << "oioi" << endl;
+    if(q->pai != nullptr && q->pai->esq != nullptr && q->key == q->pai->esq->key) q->pai->esq = r;
+    if(q->pai != nullptr && q->pai->dir != nullptr && q->key == q->pai->dir->key) q->pai->dir = r;
+    //cout << "oaoaoa" << endl;
     r->pai = q->pai;
     q->pai = r;
     q->esq = r->dir;
@@ -160,6 +165,9 @@ void TSArvoreRubroNegra<Key, Item>::add(Key key, Item val){
 
 template <class Key, class Item>
 NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * raiz, Key key, Item val){
+    /*if(key == "consectetur"){
+        cout << "ENTREEIEIEIEIEEI" << endl;
+    }*/
     if(raiz == nullptr){
         raiz = new NodeRN<Key, Item>(key, val, 'r', nullptr);
         return raiz;
@@ -225,15 +233,35 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
                 break;
             }
             else if(p == avo->dir && filho == p->dir){
+                /*cout << "aoaoaoaoaoaoaoaoaoaoaoaoa" << endl;
+                cout << "Nesse momento temos antes de girar a esquerda: " << endl;
+                mostraArvore(raiz);
+                cout << "\n\n\n";*/
                 NodeRN<Key, Item> * q = rodaEsq(avo);
+                /*cout << "Nesse momento temos depois de girar a esquerad: " << endl;
+                mostraArvore(raiz);
+                cout << "\n\n\n";
                 q->cor = 'b';
                 avo->cor = 'r';
-                if(raiz == avo) raiz = q;
+                if(raiz == avo) raiz = q;*/
                 break;
             }
             else{
+                /*
+                cout << "EEEPPPPAAAAAAA" << endl;
+                cout << "Nesse momento temos antes de girar direita: " << endl;
+                mostraArvore(raiz);
+                cout << "\n\n\n";*/
                 NodeRN<Key, Item> * q = rodaDir(p);
+                /*cout << "EEEPPPPAAAAAAA" << endl;
+                cout << "Nesse momento temos antes de girar esquerda: " << endl;
+                mostraArvore(raiz);
+                cout << "\n\n\n";*/
                 NodeRN<Key, Item> * r = rodaEsq(avo);
+                /*cout << "Nesse momento temos depois de girar esquerda: " << endl;
+                mostraArvore(raiz);
+                cout << "\n\n\n";
+                cout << "OOAOOAAOAOAOAOAOAOO" << endl;*/
                 r->cor = 'b';
                 avo->cor = 'r';
                 if(raiz == avo) raiz = r;

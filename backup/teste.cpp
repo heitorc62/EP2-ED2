@@ -242,7 +242,7 @@ int main(){
                     //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
                     //cout << "Nesse momento temos: " << endl;
-                    //dict.mostraArvore(dict.raiz);
+                    //dict.mostra(dict.raiz, true);
                     //cout << "\n\n\n";
                 }
                 atual = next;
@@ -299,11 +299,11 @@ int main(){
             if(op == 1){
                 next += stoi(aux);
                 for(int i = atual; i < next; i++){
-                    cout << "vamos adicionar a palavra: " << palavras[i] << endl;
+                    //cout << "vamos adicionar a palavra: " << palavras[i] << endl;
                     dict.add(palavras[i], dict.value(palavras[i]) + 1);
-                    cout << "Nesse momento temos: " << endl;
-                    dict.mostraArvore(dict.raiz);
-                    cout << "\n\n\n";
+                    //cout << "Nesse momento temos: " << endl;
+                    //dict.mostraArvore(dict.raiz);
+                    //cout << "\n\n\n";
                 }
                 atual = next;
             }

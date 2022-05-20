@@ -6,12 +6,14 @@ using namespace std;
 
 int main(){
     TSArvoreRubroNegra<string, int> dict = TSArvoreRubroNegra<string, int>();
+
     cout << "vamos adicionar a palavra: " << "Lorem" << endl;
     dict.add("Lorem", dict.value("Lorem") + 1);
+    
     cout << "Nesse momento temos: " << endl;
     dict.mostraArvore(dict.raiz);
     cout << "\n\n\n";
-
+    
     cout << "vamos adicionar a palavra: " << "ipsum" << endl;
     dict.add("ipsum", dict.value("ipsum") + 1);
     cout << "Nesse momento temos: " << endl;
