@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -46,6 +47,7 @@ class TSArvoreRubroNegra{
     
     public:
     void mostraArvore(NodeRN<Key, Item> * raiz);
+    void mostraSize(NodeRN<Key, Item> * raiz);
     void add(Key key, Item val);
     NodeRN<Key, Item> * raiz;
     Item value(Key key);
@@ -162,6 +164,15 @@ void TSArvoreRubroNegra<Key, Item>::add(Key key, Item val){
     raiz = putRN(raiz, key, val);
 }
 
+
+template <class Key, class Item>
+void TSArvoreRubroNegra<Key, Item>::mostraSize(NodeRN<Key, Item> * raiz){
+    if(raiz == nullptr) return;
+    cout << raiz->key << "->N = " << raiz->N << endl;
+    mostraSize(raiz->esq);
+    mostraSize(raiz->dir);
+}
+
 template <class Key, class Item>
 NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * raiz, Key key, Item val){
     /*if(key == "consectetur"){
@@ -169,10 +180,13 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
     }*/
     if(raiz == nullptr){
         raiz = new NodeRN<Key, Item>(key, val, 'r', nullptr);
+        raiz->N = size(raiz->esq) + size(raiz->dir) + 1;
         return raiz;
     }
 
+    stack<NodeRN<Key, Item> * > pilha = stack<NodeRN<Key, Item> * >();
     NodeRN<Key, Item> * p = raiz;
+    pilha.push(p);
     bool achou = false;
     while(!achou){
         if(p->key == key){
@@ -181,19 +195,28 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
         }
         else if((p->key > key) && (p->esq != nullptr)){
             p = p->esq;
+            pilha.push(p);
         }
         else if((p->key > key) && (p->esq == nullptr)){
             achou = true;
         }
         else if((p->key < key) && (p->dir != nullptr)){
             p = p->dir;
+            pilha.push(p);
         }
         else if((p->key < key) && (p->dir == nullptr)){
             achou = true;
         }
     }
+    NodeRN<Key, Item> * aux = new NodeRN<Key, Item>();
+    while(!pilha.empty()){
+        aux = pilha.top();
+        pilha.pop();
+        aux->N++;
+    }
     NodeRN<Key, Item> * novo = new NodeRN<Key, Item>(key, val, 'r', p);
     NodeRN<Key, Item> * filho = novo;
+    filho->N = size(filho->esq) + size(filho->dir) + 1;
     if(key < p->key) p->esq = filho;
     else p->dir = filho;
     while(true){
@@ -239,10 +262,10 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
                 NodeRN<Key, Item> * q = rodaEsq(avo);
                 /*cout << "Nesse momento temos depois de girar a esquerad: " << endl;
                 mostraArvore(raiz);
-                cout << "\n\n\n";
+                cout << "\n\n\n";*/
                 q->cor = 'b';
                 avo->cor = 'r';
-                if(raiz == avo) raiz = q;*/
+                if(raiz == avo) raiz = q;
                 break;
             }
             else{
@@ -268,8 +291,6 @@ NodeRN<Key, Item> *  TSArvoreRubroNegra<Key, Item>::putRN(NodeRN<Key, Item> * ra
             }
         }
     }
-    filho->N = size(filho->esq) + size(filho->dir) + 1;
-    //raiz->N = size(raiz->esq) + size(raiz->dir) + 1;
     return raiz;
 }
 

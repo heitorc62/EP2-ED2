@@ -1,0 +1,128 @@
+vamos adicionar a palavra: Lorem
+Nesse momento temos: 
+raiz = Lorem
+
+Aqui temos os sizes: 
+Lorem->N = 1
+
+
+
+vamos adicionar a palavra: ipsum
+Nesse momento temos: 
+raiz = Lorem
+filho direito de Lorem = ipsum
+
+Aqui temos os sizes: 
+Lorem->N = 2
+ipsum->N = 1
+
+
+
+vamos adicionar a palavra: dolor
+Nesse momento temos: 
+raiz = dolor
+filho esquerdo de dolor = Lorem
+filho direito de dolor = ipsum
+
+Aqui temos os sizes: 
+dolor->N = 3
+Lorem->N = 1
+ipsum->N = 1
+
+
+
+vamos adicionar a palavra: sit
+Nesse momento temos: 
+raiz = dolor
+filho esquerdo de dolor = Lorem
+filho direito de dolor = ipsum
+filho direito de ipsum = sit
+
+Aqui temos os sizes: 
+dolor->N = 4
+Lorem->N = 1
+ipsum->N = 2
+sit->N = 1
+
+
+
+vamos adicionar a palavra: amet
+Nesse momento temos: 
+raiz = dolor
+filho esquerdo de dolor = Lorem
+filho direito de Lorem = amet
+filho direito de dolor = ipsum
+filho direito de ipsum = sit
+
+Aqui temos os sizes: 
+dolor->N = 5
+Lorem->N = 2
+amet->N = 1
+ipsum->N = 2
+sit->N = 1
+
+
+
+vamos adicionar a palavra: consectur
+Nesse momento temos: 
+raiz = dolor
+filho esquerdo de dolor = amet
+filho esquerdo de amet = Lorem
+filho direito de amet = consectur
+filho direito de dolor = ipsum
+filho direito de ipsum = sit
+
+Aqui temos os sizes: 
+dolor->N = 6
+amet->N = 3
+Lorem->N = 1
+consectur->N = 1
+ipsum->N = 2
+sit->N = 1
+
+
+
+vamos adicionar a palavra: adipiscing
+Nesse momento temos: 
+raiz = dolor
+filho esquerdo de dolor = amet
+filho esquerdo de amet = Lorem
+filho direito de Lorem = adipiscing
+filho direito de amet = consectur
+filho direito de dolor = ipsum
+filho direito de ipsum = sit
+
+Aqui temos os sizes: 
+dolor->N = 7
+amet->N = 4
+Lorem->N = 2
+adipiscing->N = 1
+consectur->N = 1
+ipsum->N = 2
+sit->N = 1
+
+
+
+vamos adicionar a palavra: elit
+Nesse momento temos: 
+raiz = dolor
+filho esquerdo de dolor = amet
+filho esquerdo de amet = Lorem
+filho direito de Lorem = adipiscing
+filho direito de amet = consectur
+filho direito de dolor = ipsum
+filho esquerdo de ipsum = elit
+filho direito de ipsum = sit
+
+Aqui temos os sizes: 
+dolor->N = 8
+amet->N = 4
+Lorem->N = 2
+adipiscing->N = 1
+consectur->N = 1
+ipsum->N = 3
+elit->N = 1
+sit->N = 1
+
+
+
