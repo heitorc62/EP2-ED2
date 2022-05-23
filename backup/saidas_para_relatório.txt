@@ -1,0 +1,504 @@
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/10k/loremVO10k.txt
+21
+342
+amet.
+38
+309
+
+real    0m0.018s
+user    0m0.018s
+sys     0m0.000s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/10k/loremABB10k.txt
+21
+342
+amet.
+38
+309
+
+real    0m0.024s
+user    0m0.018s
+sys     0m0.004s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/10k/loremARN10k.txt
+21
+342
+amet.
+38
+309
+
+real    0m0.045s
+user    0m0.019s
+sys     0m0.000s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/10k/loremA2310k.txt
+21
+342
+amet.
+38
+309
+
+real    0m0.041s
+user    0m0.011s
+sys     0m0.003s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/10k/loremTR10k.txt
+21
+342
+amet.
+38
+309
+
+real    0m0.022s
+user    0m0.015s
+sys     0m0.007s
+
+
+
+
+
+
+
+
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/80k/loremVO80k.txt
+142
+17
+imperdiet,
+308
+151
+Aliquam
+Aenean
+
+real    0m0.065s
+user    0m0.059s
+sys     0m0.004s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/80k/loremABB80k.txt
+142
+17
+imperdiet,
+308
+151
+Aliquam
+Aenean
+
+real    0m0.106s
+user    0m0.074s
+sys     0m0.008s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/80k/loremA2380k.txt
+142
+17
+imperdiet,
+308
+151
+Aliquam
+Aenean
+
+real    0m0.092s
+user    0m0.074s
+sys     0m0.016s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/80k/loremARN80k.txt
+142
+17
+imperdiet,
+308
+151
+Aliquam
+Aenean
+
+real    0m0.088s
+user    0m0.087s
+sys     0m0.000s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/80k/loremTR80k.txt
+142
+17
+imperdiet,
+308
+151
+Aliquam
+Aenean
+
+real    0m0.106s
+user    0m0.090s
+sys     0m0.011s
+
+
+
+
+
+
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/160k/loremABB160k.txt
+139
+34
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.095s
+user    0m0.091s
+sys     0m0.004s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/160k/loremVO160k.txt
+139
+34
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.102s
+user    0m0.063s
+sys     0m0.012s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/160k/loremTR160k.txt
+139
+34
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.118s
+user    0m0.103s
+sys     0m0.004s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/160k/loremA23160k.txt
+139
+34
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.099s
+user    0m0.088s
+sys     0m0.008s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/160k/loremARN160k.txt
+139
+34
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.115s
+user    0m0.107s
+sys     0m0.005s
+
+
+
+
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/320k/loremVO320k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.135s
+user    0m0.112s
+sys     0m0.008s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/320k/loremABB320k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.149s
+user    0m0.101s
+sys     0m0.023s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/320k/loremARN320k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.146s
+user    0m0.118s
+sys     0m0.016s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/320k/loremA23320k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.140s
+user    0m0.106s
+sys     0m0.016s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/320k/loremTR320k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.139s
+user    0m0.122s
+sys     0m0.012s
+
+
+
+
+
+
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/640k/loremVO640k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.154s
+user    0m0.146s
+sys     0m0.008s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/640k/loremABB640k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.181s
+user    0m0.158s
+sys     0m0.012s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/640k/loremARN640k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.197s
+user    0m0.176s
+sys     0m0.012s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/640k/loremA23640k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.192s
+user    0m0.165s
+sys     0m0.020s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/640k/loremTR640k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.188s
+user    0m0.170s
+sys     0m0.016s
+
+
+
+
+
+
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/1280k/loremVO1280k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.296s
+user    0m0.231s
+sys     0m0.032s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/1280k/loremABB1280k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.303s
+user    0m0.265s
+sys     0m0.028s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/1280k/loremARN1280k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.303s
+user    0m0.270s
+sys     0m0.024s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/1280k/loremA231280k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.292s
+user    0m0.260s
+sys     0m0.024s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/1280k/loremTR1280k.txt
+139
+16
+imperdiet.
+331
+152
+Aliquam
+Aenean
+
+real    0m0.294s
+user    0m0.264s
+sys     0m0.028s
+
+
+
+
+
+
+
+
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/2560k/loremVO2560k.txt
+130
+16
+imperdiet.
+306
+150
+Aliquam
+Aenean
+
+real    0m0.509s
+user    0m0.434s
+sys     0m0.060s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/2560k/loremABB2560k.txt
+130
+16
+imperdiet.
+306
+150
+Aliquam
+Aenean
+
+real    0m0.479s
+user    0m0.438s
+sys     0m0.040s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/2560k/loremARN2560k.txt
+130
+16
+imperdiet.
+306
+150
+Aliquam
+Aenean
+
+real    0m0.582s
+user    0m0.471s
+sys     0m0.031s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/2560k/loremA232560k.txt
+130
+16
+imperdiet.
+306
+150
+Aliquam
+Aenean
+
+real    0m0.547s
+user    0m0.450s
+sys     0m0.043s
+
+heitor@pop-os:~/Documents/USP/3Semestre/ED2/EP2/backup$ time ./teste < entradas/lorem/2560k/loremTR2560k.txt
+130
+16
+imperdiet.
+306
+150
+Aliquam
+Aenean
+
+real    0m0.516s
+user    0m0.447s
+sys     0m0.056s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

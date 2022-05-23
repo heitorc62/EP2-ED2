@@ -25,7 +25,7 @@ NodeTR<Key, Item>::NodeTR(Key key, Item val, int N, NodeTR * pai){
     this->val = val;
     this->N = N;
     this->pai = pai;
-    priority = rand()% 10;
+    priority = rand();
 }
 
 

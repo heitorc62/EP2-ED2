@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <bits/stdc++.h>
 #include "TSVetorOrdenado.h"
 #include "TSArvoreBuscaBinaria.h"
 #include "TSArvore23.h"
@@ -15,7 +13,7 @@ int main(){
     string tipo;
     cin >> tipo;
     if(tipo == "VO"){
-        cout << "criamos vetor ordenado" << endl;
+        //cout << "criamos vetor ordenado" << endl;
         int N;
         cin >> N;
     
@@ -25,28 +23,21 @@ int main(){
         int cont = 0;
         int i = 0;
         string palavra;
-        string palavras[N];
-        cout << "N = " << N << endl;
-
-        string delimiters = ")(-,.;:";
+        string* palavras = new string[N];
+        //cout << "N = " << N << endl;
 
         while(cont < N){
             cin >> palavra;
-
             int aux2 = 0;
-            while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
-                palavra.pop_back();
-            }
-            palavras[cont] = palavra;
-            cont++;
+            palavras[cont++] = palavra;
         }
         int total = sizeof(palavras)/sizeof(palavras[0]);
-        cout << "A quantidade de palavras no texto é: " << total  << endl;
-        cout << "A ultima palavra lida foi: " << palavras[total - 1] << endl;
+        //cout << "A quantidade de palavras no texto é: " << total  << endl;
+        //cout << "A ultima palavra lida foi: " << palavras[total - 1] << endl;
 
         int Q;
         cin >> Q;
-        cout << "Quantidade de instruções: " << Q << endl;
+        //cout << "Quantidade de instruções: " << Q << endl;
         int atual = 0;
         cont = 0;
         int next = 0;
@@ -78,10 +69,10 @@ int main(){
             }
             cont++;
         }
-        cout << "finalizou" << endl;
+        //cout << "finalizou" << endl;
     }
     else if(tipo == "ABB"){
-        cout << "criamos arvore de busca binaria" << endl;
+        //cout << "criamos arvore de busca binaria" << endl;
 
 
         int N;
@@ -93,19 +84,11 @@ int main(){
         int cont = 0;
         int i = 0;
         string palavra;
-        string palavras[N];
-
-        string delimiters = ",.;:";
+        string* palavras = new string[N];
 
         while(cont < N){
             cin >> palavra;
-
-            int aux2 = 0;
-            while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
-                palavra.pop_back();
-            }
-            palavras[cont] = palavra;
-            cont++;
+            palavras[cont++] = palavra;
         }
         int Q;
         cin >> Q;
@@ -142,7 +125,7 @@ int main(){
         }
     }
     else if(tipo == "TR"){
-        cout << "criamos treap" << endl;
+        //cout << "criamos treap" << endl;
         int N;
         cin >> N;
         TSTreap<string, int> dict = TSTreap<string, int>();
@@ -151,20 +134,10 @@ int main(){
         int cont = 0;
         int i = 0;
         string palavra;
-        string palavras[N];
-
-        string delimiters = ",.;:";
-
+        string* palavras = new string[N];
         while(cont < N){
             cin >> palavra;
-
-            int aux2 = 0;
-            while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
-                palavra.pop_back();
-            }
-
-            palavras[cont] = palavra;
-            cont++;
+            palavras[cont++] = palavra;
         }
         int Q;
         cin >> Q;
@@ -201,7 +174,7 @@ int main(){
         }
     }
     else if(tipo == "A23"){
-        cout << "criamos arvore23" << endl;
+        //cout << "criamos arvore23" << endl;
         int N;
         cin >> N;
     
@@ -211,20 +184,10 @@ int main(){
         int cont = 0;
         int i = 0;
         string palavra;
-        string palavras[N];
-
-        string delimiters = ",.;:";
-
+        string* palavras = new string[N];
         while(cont < N){
             cin >> palavra;
-
-            int aux2 = 0;
-            while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
-                palavra.pop_back();
-            }
-
-            palavras[cont] = palavra;
-            cont++;
+            palavras[cont++] = palavra;
         }
         int Q;
         cin >> Q;
@@ -261,7 +224,7 @@ int main(){
         }
     }
     else{
-        cout << "criamos arvore rubro negra" << endl;
+        //cout << "criamos arvore rubro negra" << endl;
         int N;
         cin >> N;
         
@@ -271,20 +234,10 @@ int main(){
         int cont = 0;
         int i = 0;
         string palavra;
-        string palavras[N];
-
-        string delimiters = ",.;:";
-
+        string* palavras = new string[N];
         while(cont < N){
             cin >> palavra;
-
-            int aux2 = 0;
-            while(delimiters.find(palavra[palavra.length() - (++aux2)]) != string::npos){
-                palavra.pop_back();
-            }
-
-            palavras[cont] = palavra;
-            cont++;
+            palavras[cont++] = palavra;
         }
         int Q;
         cin >> Q;
